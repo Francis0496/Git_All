@@ -1,255 +1,323 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Francis Sesay | AI-Driven Solutions Developer</title>
+  <meta
+    name="description"
+    content="Francis Sesay — AI Engineer, Educator, Technical Leader, Data Scientist, DevOps Engineer, and Entrepreneur."
+  />
+  <meta name="theme-color" content="#070b14" />
+  <title>Francis Sesay | AI Engineer & Technical Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="container hero-shell">
-      <div class="hero-content">
-        <span class="badge">Top 1% Graduate • AI & DevOps</span>
-        <h1>Francis Sesay</h1>
-        <p class="hero-subtitle">
-          Best Graduating Student, Faculty of Information Systems, IPAM, University of Sierra Leone
-        </p>
-        <p>
-          AI-Driven Solutions Developer | Technical Leader | Data Scientist & DevOps Engineer | Educator
-        </p>
-        <div class="hero-meta">
-          <a href="mailto:ffsesay04@gmail.com">ffsesay04@gmail.com</a>
-          <span>•</span>
-          <a href="tel:+23279066670">+232 79066 670</a>
-          <span>•</span>
-          <a href="https://linkedin.com/in/francisfomba001" target="_blank" rel="noopener">linkedin.com/in/francisfomba001</a>
-        </div>
-        <p class="location">FBC Lower Faculty, Freetown, Sierra Leone</p>
-      </div>
+  <a class="skip-link" href="#home">Skip to content</a>
 
-      <aside class="hero-visual" aria-label="Portrait of Francis Sesay">
-        <div class="portrait-frame">
-          <img
-            src="assets/francis-portrait.png"
-            alt="Portrait of Francis Sesay"
-            class="portrait-image"
-            loading="eager"
-          />
-        </div>
-      </aside>
-    </div>
-    <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Francis Sesay Home">
+        <span class="brand-mark" aria-hidden="true">FS</span>
+        <span class="brand-text">Francis Sesay</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Open menu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-menu-wrap" id="navMenuWrap">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </nav>
   </header>
 
-  <main class="container">
-    <section aria-labelledby="profile-title">
-      <h2 id="profile-title">Professional Profile</h2>
-      <div class="card">
-        <p>
-          Francis Sesay is a high-impact technology professional building AI-powered systems, scalable software,
-          and community-centered digital solutions. He combines strong technical depth with leadership, mentorship,
-          and a proven track record of measurable educational and organizational impact.
-        </p>
+  <main id="home">
+    <section class="hero section reveal" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Top 1% Graduate • AI & DevOps</p>
+          <h1 id="hero-title">Francis Sesay</h1>
+          <p class="hero-subtitle">
+            AI Engineer, Educator, Technical Leader, Data Scientist, DevOps Engineer, and Entrepreneur.
+          </p>
+          <p class="hero-value">
+            Building intelligent systems, scalable digital products, and real-world learning ecosystems
+            that drive measurable impact across education, healthcare, and enterprise.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            <a href="#" class="btn btn-ghost" aria-label="Download CV">Download CV</a>
+          </div>
+
+          <ul class="hero-meta" aria-label="Key contact details">
+            <li><a href="mailto:ffsesay04@gmail.com">ffsesay04@gmail.com</a></li>
+            <li><a href="tel:+23279066670">+232 79066 670</a></li>
+            <li><a href="https://linkedin.com/in/francisfomba001" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li>FBC Lower Faculty, Freetown, Sierra Leone</li>
+          </ul>
+        </div>
+
+        <aside class="hero-visual" aria-label="Portrait of Francis Sesay">
+          <div class="portrait-shell">
+            <img
+              src="assets/francis-portrait.png"
+              alt="Portrait of Francis Sesay"
+              class="portrait-image"
+              loading="eager"
+            />
+          </div>
+        </aside>
       </div>
     </section>
 
-    <section aria-labelledby="education-title">
-      <h2 id="education-title">Education</h2>
-      <div class="card">
-        <h3>Institute of Public Administration and Management (IPAM), University of Sierra Leone</h3>
-        <p><strong>B.Sc. Honors in Information Technology (First Class)</strong> • Nov 2019 – Apr 2024</p>
-        <ul class="detail-list">
-          <li>Graduated in the top 1% of a cohort of 2,600 graduates.</li>
-          <li>CGPA: 3.83/4.0 (Best Graduating Student, Faculty of Information Systems and Technology).</li>
-          <li>Relevant coursework: Intelligent Systems, Database Systems, System Integration, Biometrics, Web Systems and Technologies, Human-Computer Interaction, Information Security.</li>
-          <li>Awards: Best Dissertation (AI-Based Inquiry Chatbot, 2024), Leadership Excellence Award (2024).</li>
-          <li>GPA by year: Year 1: 3.63 | Year 2: 3.90 | Year 3: 3.90 | Year 4: 3.94.</li>
+    <section class="section reveal" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">About</p>
+          <h2 id="about-title">Professional Profile</h2>
+        </div>
+        <article class="glass-card">
+          <p>
+            Francis Sesay is a high-impact technology professional recognized for combining deep technical
+            expertise with leadership and educational impact. He designs AI-powered solutions, scalable
+            software systems, and practical innovation programs that solve meaningful problems.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Academic Excellence</p>
+          <h2 id="education-title">Education</h2>
+        </div>
+        <div class="timeline-card">
+          <h3>Institute of Public Administration and Management (IPAM), University of Sierra Leone</h3>
+          <p><strong>B.Sc. Honors in Information Technology (First Class)</strong> • Nov 2019 – Apr 2024</p>
+          <ul class="detail-list">
+            <li>Graduated in the top 1% of a cohort of 2,600 graduates.</li>
+            <li>CGPA: 3.83/4.0 (Best Graduating Student, Faculty of Information Systems and Technology).</li>
+            <li>Relevant coursework: Intelligent Systems, Database Systems, System Integration, Biometrics, Web Technologies, HCI, Information Security.</li>
+            <li>Awards: Best Dissertation (AI-Based Inquiry Chatbot, 2024), Leadership Excellence Award (2024).</li>
+            <li>GPA by year: Year 1: 3.63 | Year 2: 3.90 | Year 3: 3.90 | Year 4: 3.94.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Innovation</p>
+          <h2 id="projects-title">Research & Projects</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>AI-Based Inquiry Chatbot</h3>
+            <p>Built with GPT-3.5 Turbo, LangChain, and Chroma DB; resolved 80%+ administrative queries with real-time support.</p>
+            <p class="tech-stack">Tech: GPT-3.5 Turbo • LangChain • Chroma DB</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-inline">Case Study</a>
+              <a href="#" class="btn btn-inline">Demo</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Automated CV Screening Tool</h3>
+            <p>Designed an AI-driven screening pipeline for HR departments to improve candidate matching in resource-constrained environments.</p>
+            <p class="tech-stack">Tech: GPT-3.5 Turbo • LangChain • Chroma DB</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-inline">Overview</a>
+              <a href="#" class="btn btn-inline">Architecture</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Traffic Congestion Prediction System</h3>
+            <p>Built end-to-end machine learning workflows to forecast area-specific congestion using historical and contextual signals.</p>
+            <p class="tech-stack">Tech: Python • ML • Data Pipelines</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-inline">Model Notes</a>
+              <a href="#" class="btn btn-inline">Results</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Facial Recognition Attendance System</h3>
+            <p>Developed an AI attendance platform inspired by FaceNet principles, optimized for scalable and accurate recognition.</p>
+            <p class="tech-stack">Tech: FaceNet Concepts • Triplet Loss • Computer Vision</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-inline">Pipeline</a>
+              <a href="#" class="btn btn-inline">Implementation</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Crop Yield Prediction System</h3>
+            <p>Delivered a full agriculture intelligence suite: crop recommendation, fertilizer optimization, and disease prediction.</p>
+            <p class="tech-stack">Tech: ML • Soil/Climate Data • Image-based Diagnosis</p>
+            <div class="project-actions">
+              <a href="#" class="btn btn-inline">Solution</a>
+              <a href="#" class="btn btn-inline">Impact</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Leadership</p>
+          <h2 id="experience-title">Professional Experience</h2>
+        </div>
+
+        <ul class="experience-timeline">
+          <li>
+            <h3>Technical Lead • KNESST Community</h3>
+            <p class="meta">Jul 2024 – Present</p>
+            <p>Led capacity-building initiatives and supervised scalable education/healthcare solution teams.</p>
+          </li>
+          <li>
+            <h3>Technical Lead • Google Developer Student Club, USL</h3>
+            <p class="meta">Jul 2023 – Present</p>
+            <p>Delivered workshops in web development and machine learning; led 5+ innovative projects.</p>
+          </li>
+          <li>
+            <h3>President • Faculty of Information Systems & Technology, IPAM</h3>
+            <p class="meta">Sep 2022 – Sep 2023</p>
+            <p>Mentored 800+ students and founded the Ishmail-Fomba Legacy Awards.</p>
+          </li>
+          <li>
+            <h3>Founder & Mentor • Fombz Academy</h3>
+            <p class="meta">Jan 2022 – Present</p>
+            <p>Built AI and web curricula for 100+ students and mentored 10 new trainers.</p>
+          </li>
+          <li>
+            <h3>Director & Tutor • Leotech SL</h3>
+            <p class="meta">Nov 2021 – Present</p>
+            <p>Led Skills Against Poverty initiative, training 150+ participants in practical digital skills.</p>
+          </li>
+          <li>
+            <h3>Technical & Client Relations Specialist • Kugba Host</h3>
+            <p class="meta">Dec 2022 – Present</p>
+            <p>Secured new clients and delivered impactful web solutions for mission-driven organizations.</p>
+          </li>
+          <li>
+            <h3>Chief Executive Officer • Sierra Tutors</h3>
+            <p class="meta">Dec 2018 – Present</p>
+            <p>Guided 3,000+ learners in AI, Python, and academic growth with strong outcome rates.</p>
+          </li>
         </ul>
       </div>
     </section>
 
-    <section aria-labelledby="projects-title">
-      <h2 id="projects-title">Research & Projects</h2>
-      <div class="resume-grid">
-        <article class="achievement-item">
-          <h3>AI-Based Inquiry Chatbot</h3>
-          <ul class="detail-list compact">
-            <li>Built with GPT-3.5 Turbo, LangChain, and Chroma DB.</li>
-            <li>Resolved 80%+ administrative queries with real-time support for students.</li>
-            <li>Designed a reusable ingestion pipeline for education, healthcare, and agriculture domains.</li>
-            <li>Awarded Best Final Year Dissertation (2024).</li>
-          </ul>
-        </article>
-        <article class="achievement-item">
-          <h3>Automated CV Screening Tool</h3>
-          <ul class="detail-list compact">
-            <li>Designed HR-focused CV screening using GPT-3.5 Turbo, LangChain, and Chroma DB.</li>
-            <li>Improved candidate-to-role matching for resource-constrained environments.</li>
-          </ul>
-        </article>
-        <article class="achievement-item">
-          <h3>Traffic Congestion Prediction System</h3>
-          <ul class="detail-list compact">
-            <li>Developed end-to-end ML workflow with historical traffic data for Freetown.</li>
-            <li>Forecasted area-specific congestion using temporal and environmental features.</li>
-            <li>Delivered actionable insights to support urban traffic planning.</li>
-          </ul>
-        </article>
-        <article class="achievement-item">
-          <h3>Facial Recognition Attendance System</h3>
-          <ul class="detail-list compact">
-            <li>Developed AI attendance platform for schools and corporate environments.</li>
-            <li>Implemented concepts from FaceNet with triplet loss for robust similarity learning.</li>
-            <li>Designed for high accuracy, scalability, and operational efficiency.</li>
-          </ul>
-        </article>
-        <article class="achievement-item">
-          <h3>Crop Yield Prediction System</h3>
-          <ul class="detail-list compact">
-            <li>Built crop recommendation app based on soil and environmental data.</li>
-            <li>Created fertilizer recommendation module for improved nutrient management.</li>
-            <li>Developed plant disease prediction from leaf images with treatment suggestions.</li>
-          </ul>
-        </article>
+    <section class="section reveal" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Capabilities</p>
+          <h2 id="skills-title">Skills by Category</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-group">
+            <h3>AI / ML</h3>
+            <div class="chip-wrap">
+              <span>Machine Learning</span><span>LangChain</span><span>GPT-3.5 Turbo</span><span>Chroma DB</span>
+            </div>
+          </article>
+
+          <article class="skill-group">
+            <h3>Web Development</h3>
+            <div class="chip-wrap">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Flask</span><span>REST APIs</span>
+            </div>
+          </article>
+
+          <article class="skill-group">
+            <h3>Data Science</h3>
+            <div class="chip-wrap">
+              <span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span>
+            </div>
+          </article>
+
+          <article class="skill-group">
+            <h3>DevOps</h3>
+            <div class="chip-wrap">
+              <span>AWS</span><span>Docker</span><span>CI/CD Pipelines</span>
+            </div>
+          </article>
+
+          <article class="skill-group">
+            <h3>Tools</h3>
+            <div class="chip-wrap">
+              <span>Git</span><span>VS Code</span><span>Cloud Platforms</span>
+            </div>
+          </article>
+
+          <article class="skill-group">
+            <h3>Leadership</h3>
+            <div class="chip-wrap">
+              <span>Mentorship</span><span>Public Speaking</span><span>Program Leadership</span><span>Community Building</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section aria-labelledby="experience-title">
-      <h2 id="experience-title">Professional Experience</h2>
-      <ul class="timeline">
-        <li>
-          <span class="year">Technical Lead • KNESST Community (Jul 2024 – Present)</span>
-          <div>Led capacity-building initiatives for school leavers and graduates in foundational tech and entrepreneurship.</div>
-          <div>Supervised teams building scalable education and healthcare solutions.</div>
-        </li>
-        <li>
-          <span class="year">Technical Lead • Google Developer Student Club, USL (Jul 2023 – Present)</span>
-          <div>Delivered workshops on web development and machine learning for 50+ students.</div>
-          <div>Led 5+ innovative student projects.</div>
-        </li>
-        <li>
-          <span class="year">President • Faculty of Information Systems & Technology, IPAM (Sep 2022 – Sep 2023)</span>
-          <div>Mentored 800+ students through workshops and tutoring programs.</div>
-          <div>Established Ishmail-Fomba Legacy Awards recognizing 35 students.</div>
-        </li>
-        <li>
-          <span class="year">Founder & Mentor • Fombz Academy (Jan 2022 – Present)</span>
-          <div>Built AI and web development curriculum for 100+ students.</div>
-          <div>Mentored 10 new trainers to scale impact.</div>
-        </li>
-        <li>
-          <span class="year">Director & Tutor • Leotech SL (Nov 2021 – Present)</span>
-          <div>Led Skills Against Poverty, training 150+ participants in Python and web development.</div>
-        </li>
-        <li>
-          <span class="year">Technical & Client Relations Specialist • Kugba Host (Dec 2022 – Present)</span>
-          <div>Secured 10 new clients, contributing to a 15% increase in client base.</div>
-          <div>Managed non-profit website projects and improved web functionality and client satisfaction.</div>
-        </li>
-        <li>
-          <span class="year">Chief Executive Officer • Sierra Tutors (Dec 2018 – Present)</span>
-          <div>Guided 3,000+ students in Python, AI, and academic skills, with 90% satisfactory outcomes.</div>
-          <div>Launched Academic Success Master Class with first-class graduate mentors.</div>
-        </li>
-      </ul>
-    </section>
+    <section class="section reveal" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Connect</p>
+          <h2 id="contact-title">Contact</h2>
+        </div>
 
-    <section aria-labelledby="awards-title">
-      <h2 id="awards-title">Awards & Honors</h2>
-      <div class="card">
-        <ul class="detail-list">
-          <li>Best Graduating Student | Faculty of Information Systems, IPAM (2024).</li>
-          <li>Best Final Year Dissertation | AI-Based Inquiry Chatbot (2024).</li>
-          <li>Leadership Excellence Award | Faculty of Information Systems (2024).</li>
-          <li>Africell Impact Foundation Award | Overall Best Student (2024).</li>
-          <li>Highest GPA Award | Class of 2023 (CGPA 3.83/4.0).</li>
-        </ul>
-      </div>
-    </section>
-
-    <section aria-labelledby="skills-title">
-      <h2 id="skills-title">Technical Skills</h2>
-      <div class="skills-wrap">
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">Java</span>
-        <span class="skill-pill">JavaScript</span>
-        <span class="skill-pill">HTML</span>
-        <span class="skill-pill">CSS</span>
-        <span class="skill-pill">PHP</span>
-        <span class="skill-pill">Pandas</span>
-        <span class="skill-pill">NumPy</span>
-        <span class="skill-pill">Matplotlib</span>
-        <span class="skill-pill">Machine Learning</span>
-        <span class="skill-pill">Flask</span>
-        <span class="skill-pill">REST APIs</span>
-        <span class="skill-pill">GPT-3.5 Turbo</span>
-        <span class="skill-pill">LangChain</span>
-        <span class="skill-pill">Chroma DB</span>
-        <span class="skill-pill">AWS</span>
-        <span class="skill-pill">Docker</span>
-        <span class="skill-pill">CI/CD Pipelines</span>
-      </div>
-    </section>
-
-    <section aria-labelledby="impact-title">
-      <h2 id="impact-title">Community Impact & Volunteering</h2>
-      <div class="resume-grid">
-        <article class="achievement-item">
-          <h3>KNESST Community</h3>
-          <p>Designed and delivered digital literacy training for 15+ women, improving computing proficiency by 80%.</p>
-        </article>
-        <article class="achievement-item">
-          <h3>Sierra Tutors</h3>
-          <p>Developed an AI-powered study guide that improved comprehension in core subjects.</p>
-        </article>
-        <article class="achievement-item">
-          <h3>Leotech SL</h3>
-          <p>Managed Skills Against Poverty with practical community-centered technology training.</p>
-        </article>
-        <article class="achievement-item">
-          <h3>Impact Sierra Leone</h3>
-          <p>Optimized website functionality, increasing donor engagement.</p>
-        </article>
-      </div>
-    </section>
-
-    <section aria-labelledby="certifications-title">
-      <h2 id="certifications-title">Certifications</h2>
-      <div class="card">
-        <ul class="detail-list">
-          <li>IBM Data Science Professional Certificate | IBM (Ongoing).</li>
-          <li>Data Analysis with Python | IBM Cognitive Class.</li>
-          <li>Responsive Web Development | University of London & Coursera.</li>
-          <li>DevOps and Software Engineering | Coursera (Ongoing).</li>
-          <li>Certified Peer Tutor | IPAM, University of Sierra Leone.</li>
-          <li>Digital Marketing for Entrepreneurs | Yali Network.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section aria-labelledby="presentations-title">
-      <h2 id="presentations-title">Presentations & Seminars</h2>
-      <div class="card">
-        <ul class="detail-list">
-          <li><strong>World Quality Week (2023):</strong> Presented on quality management systems in ICT.</li>
-          <li><strong>One-Day Symposium and Panel Discussion:</strong> Shared academic writing techniques with 200+ students.</li>
-        </ul>
+        <div class="contact-panel">
+          <div>
+            <h3>Let’s build something meaningful.</h3>
+            <p>Available for collaborations, leadership opportunities, and impactful technical projects.</p>
+          </div>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> <a href="mailto:ffsesay04@gmail.com">ffsesay04@gmail.com</a></li>
+            <li><strong>Phone:</strong> <a href="tel:+23279066670">+232 79066 670</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/francisfomba001" target="_blank" rel="noopener">linkedin.com/in/francisfomba001</a></li>
+            <li><strong>Location:</strong> Freetown, Sierra Leone</li>
+          </ul>
+          <a href="mailto:ffsesay04@gmail.com" class="btn btn-primary">Send Message</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="social-links">
-        <a href="https://linkedin.com/in/francisfomba001" class="social-icon" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
-        <a href="mailto:ffsesay04@gmail.com" class="social-icon" title="Email" aria-label="Email">✉</a>
-        <a href="tel:+23279066670" class="social-icon" title="Phone" aria-label="Phone">☎</a>
-      </div>
-      <p>Francis Sesay • AI-Driven Solutions Developer • Technical Leader</p>
-      <div class="footer-divider">
-        <p style="font-size: 0.85rem; margin: 0.5rem 0 0 0;">© 2024 Francis Sesay. All rights reserved.</p>
-      </div>
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>© 2026 Francis Sesay. All rights reserved.</p>
+      <a href="#top" class="back-to-top" aria-label="Back to top">Back to top ↑</a>
     </div>
   </footer>
 

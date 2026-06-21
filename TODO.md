@@ -1,6 +1,6 @@
 # TODO
 
-- [x] Add premium hero portrait module using provided reference image
-- [x] Redesign hero into high-end two-column editorial layout
-- [x] Add advanced image framing effects and responsive behavior in `style.css`
-- [x] Integrate portrait markup in `index.html` and keep JS behavior stable
+- [x] Rebuild `index.html` with premium semantic structure, sticky nav, improved hero, and preserved core resume content
+- [x] Rebuild `style.css` with 2026-grade design system, glassmorphism navbar, responsive layouts, and premium section components
+- [x] Rebuild `script.js` for mobile nav, smooth scrolling, active section highlighting, theme persistence, and reveal animations
+- [x] Final consistency pass for accessibility, responsiveness, and maintainability

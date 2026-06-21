@@ -1,90 +1,128 @@
-// Theme Toggle
-const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
-const savedTheme = localStorage.getItem('theme') || 'dark';
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeLabel = document.getElementById('themeLabel');
 
-// Set initial theme
-if (savedTheme === 'light') {
-  html.setAttribute('data-theme', 'light');
-  if (themeToggle) themeToggle.textContent = '☀️ Light Mode';
+const navToggle = document.getElementById('navToggle');
+const navMenuWrap = document.getElementById('navMenuWrap');
+const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+const sections = Array.from(document.querySelectorAll('main section[id], section[id]'));
+const revealEls = Array.from(document.querySelectorAll('.reveal'));
+
+const THEME_KEY = 'theme';
+
+function applyTheme(theme) {
+  const safeTheme = theme === 'light' ? 'light' : 'dark';
+  html.setAttribute('data-theme', safeTheme);
+
+  if (themeIcon) themeIcon.textContent = safeTheme === 'light' ? '☀️' : '🌙';
+  if (themeLabel) themeLabel.textContent = safeTheme === 'light' ? 'Light' : 'Dark';
 }
 
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme') || 'dark';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  const preferredDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = saved || (preferredDark ? 'dark' : 'light');
+  applyTheme(initialTheme);
+}
 
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    themeToggle.textContent = newTheme === 'light' ? '☀️ Light Mode' : '🌙 Dark Mode';
+function toggleTheme() {
+  const current = html.getAttribute('data-theme') || 'dark';
+  const next = current === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem(THEME_KEY, next);
+}
+
+function openMenu() {
+  if (!navMenuWrap || !navToggle) return;
+  navMenuWrap.classList.add('open');
+  navToggle.setAttribute('aria-expanded', 'true');
+  navToggle.setAttribute('aria-label', 'Close menu');
+}
+
+function closeMenu() {
+  if (!navMenuWrap || !navToggle) return;
+  navMenuWrap.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  navToggle.setAttribute('aria-label', 'Open menu');
+}
+
+function isMenuOpen() {
+  return navMenuWrap ? navMenuWrap.classList.contains('open') : false;
+}
+
+function handleMenuToggle() {
+  if (isMenuOpen()) closeMenu();
+  else openMenu();
+}
+
+function setActiveNav() {
+  const offset = 140;
+  let currentId = '';
+
+  sections.forEach((section) => {
+    const top = section.offsetTop - offset;
+    const bottom = top + section.offsetHeight;
+
+    if (window.scrollY >= top && window.scrollY < bottom) {
+      currentId = section.id;
+    }
+  });
+
+  navLinks.forEach((link) => {
+    const target = link.getAttribute('href')?.replace('#', '') || '';
+    link.classList.toggle('active', target === currentId);
   });
 }
 
-// Scroll Animation
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
-};
+function initReveal() {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -80px 0px' }
+  );
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, observerOptions);
+  revealEls.forEach((el) => observer.observe(el));
+}
 
-document.querySelectorAll('section').forEach((section) => {
-  observer.observe(section);
-});
+function handleDocumentClick(event) {
+  if (!isMenuOpen()) return;
 
-// Contact Form
-const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
+  const target = event.target;
+  const clickedInsideMenu = navMenuWrap?.contains(target);
+  const clickedToggle = navToggle?.contains(target);
 
-if (contactForm && formMessage) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  if (!clickedInsideMenu && !clickedToggle) closeMenu();
+}
 
-    const name = document.getElementById('name')?.value.trim() || '';
-    const email = document.getElementById('email')?.value.trim() || '';
-    const message = document.getElementById('message')?.value.trim() || '';
+function handleEscape(event) {
+  if (event.key === 'Escape' && isMenuOpen()) closeMenu();
+}
 
-    // Simple validation
-    if (!name || !email || !message) {
-      formMessage.className = 'form-message error';
-      formMessage.textContent = 'Please fill in all fields.';
-      return;
-    }
-
-    if (!email.includes('@')) {
-      formMessage.className = 'form-message error';
-      formMessage.textContent = 'Please enter a valid email address.';
-      return;
-    }
-
-    // Simulate form submission
-    formMessage.className = 'form-message success';
-    formMessage.textContent = "✓ Thank you! Your message has been received. I'll get back to you soon.";
-
-    contactForm.reset();
-
-    setTimeout(() => {
-      formMessage.className = 'form-message';
-      formMessage.textContent = '';
-    }, 5000);
+function initSmoothNav() {
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
   });
 }
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', function (e) {
-    if (this.getAttribute('href') !== '#') {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  });
-});
+function init() {
+  initTheme();
+  initReveal();
+  initSmoothNav();
+  setActiveNav();
+
+  if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+  if (navToggle) navToggle.addEventListener('click', handleMenuToggle);
+
+  document.addEventListener('click', handleDocumentClick);
+  document.addEventListener('keydown', handleEscape);
+  window.addEventListener('scroll', setActiveNav);
+  window.addEventListener('resize', setActiveNav);
+}
+
+init();
