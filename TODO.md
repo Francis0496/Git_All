@@ -1,7 +1,6 @@
 # TODO
 
-- [x] Extract inline CSS from `index.html` into `style.css`
-- [x] Extract inline JavaScript from `index.html` into `script.js`
-- [x] Upgrade to premium modern visual design (fonts, spacing, glass effects, motion polish)
-- [x] Update `index.html` to link external assets
-- [x] Mark tasks complete after implementation
+- [ ] Integrate full resume data into `index.html` with structured professional sections
+- [ ] Upgrade layout patterns in `style.css` for resume-heavy content (grids, badges, meta rows, dense lists)
+- [ ] Preserve and verify existing JS interactions with new content structure
+- [ ] Final pass for readability, spacing, and responsive behavior
