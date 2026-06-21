@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Francis Sesay — AI Engineer, Technical Leader, Educator, Entrepreneur, and Top 1% Best Graduating Student."
-  />
-  <meta name="theme-color" content="#070b14" />
-  <meta property="og:title" content="Francis Sesay | AI Engineer & Technical Leader" />
-  <meta property="og:description" content="Premium personal brand portfolio for Francis Sesay." />
+  <meta name="description" content="Francis Sesay — AI Engineer, Technical Leader, Educator, Founder, and Top Graduating Student. Premium 2026 personal brand platform." />
+  <meta name="theme-color" content="#030712" />
+  <meta property="og:title" content="Francis Sesay | AI Engineer • Technical Leader • Educator • Founder" />
+  <meta property="og:description" content="Digital headquarters of Francis Sesay — intelligence, leadership, impact, and technical excellence." />
   <title>Francis Sesay | AI Engineer • Educator • Founder</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-orb orb-1" aria-hidden="true"></div>
-  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="bg-orb orb-a" aria-hidden="true"></div>
+  <div class="bg-orb orb-b" aria-hidden="true"></div>
   <div class="bg-grid" aria-hidden="true"></div>
 
-  <a class="skip-link" href="#home">Skip to main content</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <header class="site-header" id="top">
-    <nav class="nav container" aria-label="Primary">
+    <nav class="nav container" aria-label="Primary navigation">
       <a href="#home" class="brand" aria-label="Francis Sesay Home">
         <span class="brand-mark" aria-hidden="true">FS</span>
         <span class="brand-text">Francis Sesay</span>
@@ -38,18 +37,20 @@
       >
         <span></span><span></span><span></span>
       </button>
+      <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
       <div class="nav-menu-wrap" id="navMenuWrap">
         <ul class="nav-menu" id="navMenu">
           <li><a href="#home" class="nav-link active">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#impact" class="nav-link">Impact</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#awards" class="nav-link">Awards</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-
+        <a href="#" class="btn btn-nav">Download CV</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">
           <span id="themeIcon" aria-hidden="true">🌙</span>
           <span id="themeLabel">Dark</span>
@@ -58,304 +59,269 @@
     </nav>
   </header>
 
-  <main id="home">
-    <section class="hero section reveal" aria-labelledby="hero-title">
+  <main id="main">
+    <section class="hero section reveal fade-up" id="home" aria-labelledby="hero-title">
+      <canvas id="heroNetwork" class="hero-network" aria-hidden="true"></canvas>
       <div class="container hero-grid">
         <div class="hero-content">
-          <p class="eyebrow">AI Engineer • Technical Leader • Educator • Founder</p>
-          <h1 id="hero-title">Designing Intelligent Systems That Scale Human Potential.</h1>
+          <p class="eyebrow">TOP 1% GRADUATE • AI ENGINEER • EDUCATOR</p>
+          <h1 id="hero-title">Building AI-powered systems and education technologies that scale impact across Africa.</h1>
           <p class="hero-subtitle">Francis Sesay</p>
-          <p class="hero-value">
-            I build production-ready AI solutions, lead high-performing technical communities, and mentor
-            future innovators. My work combines technical rigor, real-world impact, and founder-level execution.
+          <p class="hero-copy">
+            AI Engineer, Technical Leader, Data Scientist, DevOps Engineer, Educator, Founder, and Entrepreneur.
+            I design intelligent digital infrastructure and mentorship ecosystems that transform people and institutions.
           </p>
 
           <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">View Projects</a>
-            <a href="#contact" class="btn btn-secondary">Contact Me</a>
-            <a href="#" class="btn btn-ghost" aria-label="Download CV">Download CV</a>
+            <a href="#projects" class="btn btn-primary magnetic">View Projects</a>
+            <a href="#" class="btn btn-secondary magnetic">Download CV</a>
+            <a href="#contact" class="btn btn-ghost magnetic">Contact Me</a>
           </div>
 
-          <ul class="hero-cred" aria-label="Key credibility highlights">
-            <li>🏆 Top 1% Graduate (Best in Faculty, IPAM)</li>
-            <li>👨🏾‍🏫 Guided 3,000+ learners via Sierra Tutors</li>
-            <li>🚀 Built multi-domain AI systems for education & operations</li>
+          <ul class="hero-badges" aria-label="Key achievements">
+            <li class="badge floating">🏆 Best Graduating Student, IPAM</li>
+            <li class="badge floating">🎓 First Class Honours (CGPA 3.83)</li>
+            <li class="badge floating">🚀 3,000+ Learners Mentored</li>
           </ul>
         </div>
 
-        <aside class="hero-visual" aria-label="Portrait panel">
+        <aside class="hero-visual reveal slide-right" aria-label="Professional portrait">
           <div class="portrait-shell floating">
-            <img
-              src="assets/francis-portrait.png"
-              alt="Portrait of Francis Sesay"
-              class="portrait-image"
-              loading="eager"
-            />
+            <img src="assets/francis-portrait.png" alt="Portrait of Francis Sesay" class="portrait-image" loading="eager" />
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section metrics reveal" aria-labelledby="metrics-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">Impact</p>
-          <h2 id="metrics-title">Measured Outcomes</h2>
-        </div>
-        <div class="metrics-grid">
-          <article class="metric-card"><h3>3,000+</h3><p>Learners mentored in AI, coding, and academic growth</p></article>
-          <article class="metric-card"><h3>2,600</h3><p>Graduates ranked against to finish in the top 1%</p></article>
-          <article class="metric-card"><h3>150+</h3><p>Participants trained through Skills Against Poverty initiatives</p></article>
-          <article class="metric-card"><h3>80%+</h3><p>Administrative query resolution in AI chatbot deployment</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="about" aria-labelledby="about-title">
+    <section class="section reveal fade-up" id="about" aria-labelledby="about-title">
       <div class="container split-grid">
         <article class="glass-card">
-          <div class="section-head">
-            <p class="section-kicker">About</p>
-            <h2 id="about-title">A Technical Leader with Founder Discipline</h2>
-          </div>
+          <p class="section-kicker">About</p>
+          <h2 id="about-title">The Digital Headquarters of an AI Builder and Technology Leader</h2>
           <p>
-            Francis Sesay blends deep technical implementation with strategic leadership. From AI product
-            development to large-scale mentorship, he delivers systems and programs that create long-term value.
+            Francis Sesay blends technical depth, systems thinking, and leadership execution. His work spans AI engineering,
+            educational technology, operational automation, and community innovation.
           </p>
           <p>
-            His portfolio spans intelligent automation, machine learning, software architecture, educational
-            transformation, and community-led innovation.
+            From research-driven problem solving to founder-level delivery, he builds intelligent platforms that create measurable outcomes.
           </p>
         </article>
 
         <article class="glass-card">
-          <h3>Core Positioning</h3>
+          <h3>Core Identity</h3>
           <ul class="detail-list">
-            <li>AI Engineer focused on practical, deployable intelligence systems.</li>
-            <li>Technical leader driving cross-functional innovation teams.</li>
-            <li>Educator building talent pipelines and mentorship ecosystems.</li>
-            <li>Entrepreneur creating scalable digital and learning ventures.</li>
+            <li>AI Engineer delivering practical, production-ready intelligence systems.</li>
+            <li>Technical leader shaping high-performing teams and innovation communities.</li>
+            <li>Educator mentoring future builders through scalable learning programs.</li>
+            <li>Founder driving mission-led digital ventures with measurable impact.</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <section class="section reveal" id="education" aria-labelledby="education-title">
+    <section class="section reveal scale-in" id="impact" aria-labelledby="impact-title">
       <div class="container">
         <div class="section-head">
-          <p class="section-kicker">Academic Credibility</p>
-          <h2 id="education-title">Education & Distinction</h2>
+          <p class="section-kicker">Impact</p>
+          <h2 id="impact-title">Numbers That Prove Execution</h2>
         </div>
-        <article class="timeline-card">
+        <div class="impact-grid">
+          <article class="impact-card"><h3 class="counter" data-target="3000">0</h3><p>Students Mentored</p></article>
+          <article class="impact-card"><h3 class="counter" data-target="800">0</h3><p>University Students Supported</p></article>
+          <article class="impact-card"><h3 class="counter" data-target="60">0</h3><p>Award Recipients</p></article>
+          <article class="impact-card"><h3 class="counter" data-target="15">0</h3><p>Technical Workshops</p></article>
+          <article class="impact-card"><h3 class="counter" data-target="5">0</h3><p>Communities Served</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal slide-left" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Experience</p>
+          <h2 id="experience-title">Interactive Leadership Timeline</h2>
+        </div>
+        <ul class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-icon">🧠</span>
+            <div>
+              <h3>Technical Lead — KNESST Community</h3>
+              <p class="meta">Jul 2024 – Present</p>
+              <p>Building scalable digital systems for education and healthcare initiatives with community-level impact.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-icon">💡</span>
+            <div>
+              <h3>Technical Lead — Google Developer Student Club (USL)</h3>
+              <p class="meta">Jul 2023 – Present</p>
+              <p>Led technical tracks in web engineering and machine learning while mentoring project teams.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-icon">🎓</span>
+            <div>
+              <h3>President — Faculty of Information Systems & Technology (IPAM)</h3>
+              <p class="meta">Sep 2022 – Sep 2023</p>
+              <p>Mentored 800+ students and launched an academic awards framework for outstanding performers.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal fade-up" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Education</p>
+          <h2 id="education-title">Academic Distinction Timeline</h2>
+        </div>
+        <article class="glass-card">
           <h3>B.Sc. (Honors) in Information Technology — First Class</h3>
           <p class="meta">Institute of Public Administration and Management (IPAM), University of Sierra Leone • 2019–2024</p>
           <ul class="detail-list">
-            <li>Best Graduating Student, Faculty of Information Systems and Technology.</li>
-            <li>CGPA: 3.83/4.0 with year-by-year improvement to 3.94 in final year.</li>
-            <li>Best Dissertation Award (2024): AI-Based Inquiry Chatbot.</li>
+            <li>CGPA: 3.83/4.0 with final-year improvement to 3.94.</li>
+            <li>Best Graduating Student, Faculty of Information Systems & Technology.</li>
+            <li>Best Dissertation Award — AI-Based Inquiry Chatbot.</li>
             <li>Leadership Excellence Award (2024).</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <section class="section reveal" id="projects" aria-labelledby="projects-title">
+    <section class="section reveal slide-right" id="leadership" aria-labelledby="leadership-title">
       <div class="container">
         <div class="section-head">
-          <p class="section-kicker">Case Studies</p>
-          <h2 id="projects-title">Selected Projects</h2>
+          <p class="section-kicker">Leadership</p>
+          <h2 id="leadership-title">Building Communities, Talent, and Outcomes</h2>
         </div>
+        <div class="leadership-grid">
+          <article class="glass-card"><h3>Faculty President</h3><p>Drove student mentorship initiatives and recognition systems for excellence.</p></article>
+          <article class="glass-card"><h3>GDSC Technical Lead</h3><p>Enabled practical upskilling in modern software and AI engineering pathways.</p></article>
+          <article class="glass-card"><h3>KNESST Technical Lead</h3><p>Directed technical execution across impact-focused digital solutions.</p></article>
+          <article class="glass-card"><h3>Founder — Sierra EduTech</h3><p>Created scalable education innovation channels serving learners and institutions.</p></article>
+        </div>
+      </div>
+    </section>
 
+    <section class="section reveal fade-up" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Projects</p>
+          <h2 id="projects-title">Case Studies in AI and Engineering</h2>
+        </div>
         <div class="projects-grid">
-          <article class="project-card">
-            <p class="project-tag">AI Automation</p>
-            <h3>AI-Based Inquiry Chatbot</h3>
-            <p>Reduced repetitive administrative workload through retrieval-augmented responses and context-aware conversations.</p>
-            <p class="tech-stack">GPT-3.5 Turbo • LangChain • Chroma DB</p>
+          <article class="project-card tilt-card">
+            <div class="project-thumb ai-thumb" aria-hidden="true"></div>
+            <h3>AI Inquiry Chatbot</h3>
+            <p>RAG-powered assistant that reduced repetitive inquiry load and improved response consistency.</p>
+            <p class="tech-stack">GPT-3.5 • LangChain • ChromaDB</p>
             <div class="project-actions">
-              <a href="#" class="btn btn-inline">Challenge</a>
-              <a href="#" class="btn btn-inline">Outcome</a>
+              <a href="#" class="btn btn-inline">GitHub</a>
+              <a href="#" class="btn btn-inline">Live Demo</a>
             </div>
           </article>
-
-          <article class="project-card">
-            <p class="project-tag">HR Intelligence</p>
+          <article class="project-card tilt-card">
+            <div class="project-thumb data-thumb" aria-hidden="true"></div>
             <h3>Automated CV Screening Tool</h3>
-            <p>Optimized shortlisting decisions with AI-assisted candidate matching and profile ranking workflows.</p>
-            <p class="tech-stack">LLMs • Ranking Logic • Workflow Automation</p>
+            <p>Accelerated shortlisting with AI-assisted relevance scoring and workflow automation.</p>
+            <p class="tech-stack">LLMs • Ranking Logic • Automation</p>
             <div class="project-actions">
-              <a href="#" class="btn btn-inline">Approach</a>
-              <a href="#" class="btn btn-inline">Impact</a>
+              <a href="#" class="btn btn-inline">GitHub</a>
+              <a href="#" class="btn btn-inline">Live Demo</a>
             </div>
           </article>
-
-          <article class="project-card">
-            <p class="project-tag">Smart Mobility</p>
+          <article class="project-card tilt-card">
+            <div class="project-thumb infra-thumb" aria-hidden="true"></div>
             <h3>Traffic Congestion Prediction</h3>
-            <p>Created predictive analytics pipelines for proactive routing and better transport planning signals.</p>
-            <p class="tech-stack">Python • ML Forecasting • Data Pipelines</p>
+            <p>Predictive analytics pipeline for smarter route planning and mobility intelligence.</p>
+            <p class="tech-stack">Python • Forecasting • Data Pipelines</p>
             <div class="project-actions">
-              <a href="#" class="btn btn-inline">Pipeline</a>
-              <a href="#" class="btn btn-inline">Metrics</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <p class="project-tag">Computer Vision</p>
-            <h3>Facial Recognition Attendance</h3>
-            <p>Built robust facial verification flows inspired by FaceNet principles for attendance integrity.</p>
-            <p class="tech-stack">FaceNet Concepts • CV • Similarity Learning</p>
-            <div class="project-actions">
-              <a href="#" class="btn btn-inline">System</a>
-              <a href="#" class="btn btn-inline">Results</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <p class="project-tag">AgriTech AI</p>
-            <h3>Crop Yield Prediction Suite</h3>
-            <p>Delivered recommendation models for crop suitability, fertilizer planning, and disease risk detection.</p>
-            <p class="tech-stack">ML Models • Soil Data • Image Diagnosis</p>
-            <div class="project-actions">
-              <a href="#" class="btn btn-inline">Design</a>
-              <a href="#" class="btn btn-inline">Value</a>
+              <a href="#" class="btn btn-inline">GitHub</a>
+              <a href="#" class="btn btn-inline">Live Demo</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="experience" aria-labelledby="experience-title">
+    <section class="section reveal slide-left" id="awards" aria-labelledby="awards-title">
       <div class="container">
         <div class="section-head">
-          <p class="section-kicker">Experience Timeline</p>
-          <h2 id="experience-title">Leadership Journey</h2>
+          <p class="section-kicker">Awards</p>
+          <h2 id="awards-title">Recognition for Excellence</h2>
         </div>
-
-        <ul class="experience-timeline">
-          <li>
-            <span class="dot" aria-hidden="true"></span>
-            <h3>Technical Lead — KNESST Community</h3>
-            <p class="meta">Jul 2024 – Present</p>
-            <p>Leading teams building scalable digital solutions in education and healthcare ecosystems.</p>
-          </li>
-          <li>
-            <span class="dot" aria-hidden="true"></span>
-            <h3>Technical Lead — Google Developer Student Club, USL</h3>
-            <p class="meta">Jul 2023 – Present</p>
-            <p>Delivered workshops in web and ML while supervising multiple innovative student projects.</p>
-          </li>
-          <li>
-            <span class="dot" aria-hidden="true"></span>
-            <h3>President — Faculty of Information Systems & Technology, IPAM</h3>
-            <p class="meta">Sep 2022 – Sep 2023</p>
-            <p>Mentored 800+ students and founded an awards program recognizing academic excellence.</p>
-          </li>
-          <li>
-            <span class="dot" aria-hidden="true"></span>
-            <h3>Founder & Mentor — Fombz Academy</h3>
-            <p class="meta">Jan 2022 – Present</p>
-            <p>Built practical learning pathways in AI and software development for 100+ students.</p>
-          </li>
-          <li>
-            <span class="dot" aria-hidden="true"></span>
-            <h3>Director & Tutor — Leotech SL</h3>
-            <p class="meta">Nov 2021 – Present</p>
-            <p>Led digital upskilling programs and empowered 150+ participants with income-ready skills.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section reveal" aria-labelledby="awards-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">Recognition</p>
-          <h2 id="awards-title">Awards & Honors</h2>
-        </div>
-        <div class="awards-grid">
-          <article class="award-card"><h3>Best Graduating Student</h3><p>Faculty of Information Systems & Technology, IPAM (2024)</p></article>
-          <article class="award-card"><h3>Best Dissertation Award</h3><p>AI-Based Inquiry Chatbot, IPAM (2024)</p></article>
-          <article class="award-card"><h3>Leadership Excellence Award</h3><p>IPAM Student Union Government (2024)</p></article>
+        <div class="awards-row">
+          <article class="award-card">Best Graduating Student</article>
+          <article class="award-card">Best Dissertation Award</article>
+          <article class="award-card">Best Programmer</article>
+          <article class="award-card">Leadership Excellence Award</article>
+          <article class="award-card">Deputy Vice Chancellor Award</article>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" aria-labelledby="testimonials-title">
+    <section class="section reveal scale-in" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <div class="section-head">
-          <p class="section-kicker">Social Proof</p>
-          <h2 id="testimonials-title">Testimonials</h2>
+          <p class="section-kicker">Skills Architecture</p>
+          <h2 id="skills-title">Technical and Leadership Stack</h2>
         </div>
-        <div class="testimonials-grid">
-          <blockquote class="testimonial-card">
-            <p>“Francis combines technical depth with uncommon leadership maturity. He builds systems and people at the same time.”</p>
-            <cite>— Academic Mentor</cite>
-          </blockquote>
-          <blockquote class="testimonial-card">
-            <p>“His training programs made advanced technical concepts practical and accessible for our entire cohort.”</p>
-            <cite>— Program Participant</cite>
-          </blockquote>
-          <blockquote class="testimonial-card">
-            <p>“A rare founder mindset: strategic thinking, fast execution, and consistent delivery.”</p>
-            <cite>— Community Collaborator</cite>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="skills" aria-labelledby="skills-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="section-kicker">Capabilities</p>
-          <h2 id="skills-title">Skills & Leadership Stack</h2>
-        </div>
-
         <div class="skills-grid">
-          <article class="skill-group">
-            <h3>AI / ML</h3>
-            <div class="chip-wrap"><span>Machine Learning</span><span>LangChain</span><span>LLMs</span><span>Prompt Engineering</span></div>
-          </article>
-          <article class="skill-group">
-            <h3>Web Development</h3>
-            <div class="chip-wrap"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Flask</span><span>REST APIs</span></div>
-          </article>
-          <article class="skill-group">
-            <h3>Data Science</h3>
-            <div class="chip-wrap"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Visualization</span></div>
-          </article>
-          <article class="skill-group">
-            <h3>DevOps</h3>
-            <div class="chip-wrap"><span>AWS</span><span>Docker</span><span>CI/CD</span><span>Automation</span></div>
-          </article>
-          <article class="skill-group">
-            <h3>Tools</h3>
-            <div class="chip-wrap"><span>Git</span><span>VS Code</span><span>Cloud Platforms</span></div>
-          </article>
-          <article class="skill-group">
-            <h3>Leadership</h3>
-            <div class="chip-wrap"><span>Mentorship</span><span>Public Speaking</span><span>Community Building</span><span>Program Design</span></div>
-          </article>
+          <article class="skill-card"><h3>Artificial Intelligence</h3><div class="skill-bar"><span style="--level:92%"></span></div></article>
+          <article class="skill-card"><h3>Machine Learning</h3><div class="skill-bar"><span style="--level:90%"></span></div></article>
+          <article class="skill-card"><h3>Data Science</h3><div class="skill-bar"><span style="--level:88%"></span></div></article>
+          <article class="skill-card"><h3>Software Engineering</h3><div class="skill-bar"><span style="--level:91%"></span></div></article>
+          <article class="skill-card"><h3>Cloud & DevOps</h3><div class="skill-bar"><span style="--level:84%"></span></div></article>
+          <article class="skill-card"><h3>Leadership</h3><div class="skill-bar"><span style="--level:95%"></span></div></article>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="contact" aria-labelledby="contact-title">
+    <section class="section reveal fade-up" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Testimonials</p>
+          <h2 id="testimonials-title">What People Say</h2>
+        </div>
+        <div class="testimonial-wrap">
+          <article class="testimonial-card active">
+            <p>“Francis combines technical depth with leadership maturity. He builds systems and people simultaneously.”</p>
+            <cite>— Faculty Mentor</cite>
+          </article>
+          <article class="testimonial-card">
+            <p>“His training approach transformed complex concepts into practical skills for our cohort.”</p>
+            <cite>— Student Participant</cite>
+          </article>
+          <article class="testimonial-card">
+            <p>“High ownership, high clarity, and consistent delivery. A true founder mindset.”</p>
+            <cite>— Community Collaborator</cite>
+          </article>
+          <div class="testimonial-controls">
+            <button id="prevTestimonial" aria-label="Previous testimonial">←</button>
+            <button id="nextTestimonial" aria-label="Next testimonial">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal fade-up" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <div class="contact-panel">
           <div>
             <p class="section-kicker">Contact</p>
             <h2 id="contact-title">Let’s Build What Matters.</h2>
-            <p>Open to technical leadership roles, AI collaborations, speaking, and strategic partnerships.</p>
+            <p>Open to AI collaborations, technical leadership roles, speaking opportunities, and strategic partnerships.</p>
           </div>
           <ul class="contact-list">
             <li><strong>Email:</strong> <a href="mailto:ffsesay04@gmail.com">ffsesay04@gmail.com</a></li>
             <li><strong>Phone:</strong> <a href="tel:+23279066670">+232 79066 670</a></li>
             <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/francisfomba001" target="_blank" rel="noopener">linkedin.com/in/francisfomba001</a></li>
-            <li><strong>Location:</strong> Freetown, Sierra Leone</li>
+            <li><strong>GitHub:</strong> <a href="#">github.com/francis</a></li>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/23279066670" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
           </ul>
           <div class="contact-cta">
-            <a href="mailto:ffsesay04@gmail.com" class="btn btn-primary">Start a Conversation</a>
+            <a href="mailto:ffsesay04@gmail.com" class="btn btn-primary magnetic">Start a Conversation</a>
           </div>
         </div>
       </div>
