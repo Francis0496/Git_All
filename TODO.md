@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] Integrate full resume data into `index.html` with structured professional sections
-- [ ] Upgrade layout patterns in `style.css` for resume-heavy content (grids, badges, meta rows, dense lists)
-- [ ] Preserve and verify existing JS interactions with new content structure
-- [ ] Final pass for readability, spacing, and responsive behavior
+- [x] Upgrade typography to premium variable-font system in `style.css`
+- [x] Add semantic type scale and contextual font variants for headings/body/meta
+- [x] Apply typography utility classes in `index.html` where needed
+- [x] Final polish for readability and hierarchy consistency

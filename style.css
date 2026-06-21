@@ -1,6 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Sora:wght@400;500;600;700;800&display=swap');
 
 :root {
+  --font-body: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-display: 'Sora', 'Inter', 'Segoe UI', sans-serif;
   --bg: #070b14;
   --bg-2: #0f172a;
   --card: rgba(15, 23, 42, 0.7);
@@ -42,8 +44,10 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
-  line-height: 1.65;
+  font-family: var(--font-body);
+  font-variation-settings: 'opsz' 18;
+  font-feature-settings: 'cv11' 1, 'ss01' 1;
+  line-height: 1.72;
   color: var(--text);
   background:
     radial-gradient(1100px 700px at 90% -10%, rgba(56, 189, 248, 0.16), transparent 45%),
@@ -115,10 +119,12 @@ header.hero {
 .hero h1 {
   margin: 0;
   color: var(--heading);
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  font-size: clamp(2.1rem, 5vw, 3.6rem);
-  letter-spacing: -0.03em;
-  line-height: 1.12;
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5vw, 3.7rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  text-wrap: balance;
   animation: fadeInDown 0.85s ease;
 }
 
@@ -126,8 +132,34 @@ header.hero {
   margin-top: 0.85rem;
   color: var(--muted);
   max-width: 740px;
-  font-size: 1.08rem;
+  font-size: 1.06rem;
+  font-weight: 470;
+  letter-spacing: -0.01em;
   animation: fadeInUp 0.85s ease 0.2s both;
+}
+
+.hero-subtitle {
+  color: var(--heading);
+  font-size: 1.02rem;
+  font-weight: 620;
+  line-height: 1.5;
+}
+
+.hero-meta {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.94rem;
+  font-weight: 560;
+  letter-spacing: -0.005em;
+}
+
+.location {
+  margin-top: 0.45rem;
+  font-size: 0.92rem;
+  color: var(--muted);
 }
 
 section {
@@ -147,15 +179,20 @@ h2 {
   margin-top: 0;
   margin-bottom: 1rem;
   color: var(--heading);
-  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.34rem, 2.4vw, 1.85rem);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
 h3 {
   margin-top: 0;
   color: var(--heading);
+  font-family: var(--font-display);
   font-size: 1.06rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
 }
 
 .card {
@@ -203,7 +240,9 @@ h3 {
 
 .timeline .year {
   color: var(--accent);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   display: inline-block;
   margin-bottom: 0.28rem;
 }
@@ -362,6 +401,7 @@ footer {
 a {
   color: var(--accent);
   text-decoration: none;
+  font-weight: 560;
   transition: color 0.25s ease, opacity 0.25s ease;
 }
 
@@ -414,6 +454,48 @@ a:hover {
     margin-right: 0;
     margin-left: 4%;
   }
+}
+
+.detail-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.detail-list li {
+  color: var(--text);
+  line-height: 1.68;
+  font-size: 0.97rem;
+}
+
+.detail-list.compact {
+  gap: 0.42rem;
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 1rem;
+}
+
+.skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.58rem;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.42rem 0.78rem;
+  border-radius: 999px;
+  background: linear-gradient(125deg, rgba(56, 189, 248, 0.18), rgba(124, 58, 237, 0.15));
+  border: 1px solid rgba(56, 189, 248, 0.36);
+  color: var(--heading);
+  font-size: 0.84rem;
+  font-weight: 620;
+  letter-spacing: 0.01em;
 }
 
 @media (max-width: 620px) {
