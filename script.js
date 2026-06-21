@@ -1,4 +1,5 @@
 const html = document.documentElement;
+
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const themeLabel = document.getElementById('themeLabel');
@@ -6,8 +7,10 @@ const themeLabel = document.getElementById('themeLabel');
 const navToggle = document.getElementById('navToggle');
 const navMenuWrap = document.getElementById('navMenuWrap');
 const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
 const sections = Array.from(document.querySelectorAll('main section[id], section[id]'));
 const revealEls = Array.from(document.querySelectorAll('.reveal'));
+const floatingEls = Array.from(document.querySelectorAll('.floating'));
 
 const THEME_KEY = 'theme';
 
@@ -20,9 +23,9 @@ function applyTheme(theme) {
 }
 
 function initTheme() {
-  const saved = localStorage.getItem(THEME_KEY);
-  const preferredDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = saved || (preferredDark ? 'dark' : 'light');
+  const savedTheme = localStorage.getItem(THEME_KEY);
+  const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
   applyTheme(initialTheme);
 }
 
@@ -37,18 +40,18 @@ function openMenu() {
   if (!navMenuWrap || !navToggle) return;
   navMenuWrap.classList.add('open');
   navToggle.setAttribute('aria-expanded', 'true');
-  navToggle.setAttribute('aria-label', 'Close menu');
+  navToggle.setAttribute('aria-label', 'Close navigation menu');
 }
 
 function closeMenu() {
   if (!navMenuWrap || !navToggle) return;
   navMenuWrap.classList.remove('open');
   navToggle.setAttribute('aria-expanded', 'false');
-  navToggle.setAttribute('aria-label', 'Open menu');
+  navToggle.setAttribute('aria-label', 'Open navigation menu');
 }
 
 function isMenuOpen() {
-  return navMenuWrap ? navMenuWrap.classList.contains('open') : false;
+  return !!navMenuWrap && navMenuWrap.classList.contains('open');
 }
 
 function handleMenuToggle() {
@@ -56,30 +59,31 @@ function handleMenuToggle() {
   else openMenu();
 }
 
-function setActiveNav() {
-  const offset = 140;
-  let currentId = '';
+function setActiveNavLink() {
+  const offset = 150;
+  let currentSectionId = '';
 
   sections.forEach((section) => {
     const top = section.offsetTop - offset;
     const bottom = top + section.offsetHeight;
 
     if (window.scrollY >= top && window.scrollY < bottom) {
-      currentId = section.id;
+      currentSectionId = section.id;
     }
   });
 
   navLinks.forEach((link) => {
-    const target = link.getAttribute('href')?.replace('#', '') || '';
-    link.classList.toggle('active', target === currentId);
+    const targetId = link.getAttribute('href')?.replace('#', '') || '';
+    link.classList.toggle('active', targetId === currentSectionId);
   });
 }
 
-function initReveal() {
+function initRevealObserver() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
       });
     },
     { threshold: 0.12, rootMargin: '0px 0px -80px 0px' }
@@ -88,21 +92,7 @@ function initReveal() {
   revealEls.forEach((el) => observer.observe(el));
 }
 
-function handleDocumentClick(event) {
-  if (!isMenuOpen()) return;
-
-  const target = event.target;
-  const clickedInsideMenu = navMenuWrap?.contains(target);
-  const clickedToggle = navToggle?.contains(target);
-
-  if (!clickedInsideMenu && !clickedToggle) closeMenu();
-}
-
-function handleEscape(event) {
-  if (event.key === 'Escape' && isMenuOpen()) closeMenu();
-}
-
-function initSmoothNav() {
+function bindNavLinks() {
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
       closeMenu();
@@ -110,19 +100,50 @@ function initSmoothNav() {
   });
 }
 
+function handleOutsideClick(event) {
+  if (!isMenuOpen()) return;
+
+  const target = event.target;
+  const clickedToggle = navToggle?.contains(target);
+  const clickedMenu = navMenuWrap?.contains(target);
+
+  if (!clickedToggle && !clickedMenu) closeMenu();
+}
+
+function handleEscape(event) {
+  if (event.key === 'Escape' && isMenuOpen()) closeMenu();
+}
+
+function initFloatingParallax() {
+  if (!floatingEls.length) return;
+  if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+
+  window.addEventListener('mousemove', (event) => {
+    const xRatio = (event.clientX / window.innerWidth - 0.5) * 8;
+    const yRatio = (event.clientY / window.innerHeight - 0.5) * 8;
+
+    floatingEls.forEach((el, index) => {
+      const factor = (index + 1) * 0.6;
+      el.style.transform = `translate3d(${xRatio * factor}px, ${yRatio * factor}px, 0)`;
+    });
+  });
+}
+
 function init() {
   initTheme();
-  initReveal();
-  initSmoothNav();
-  setActiveNav();
+  initRevealObserver();
+  initFloatingParallax();
+  bindNavLinks();
+  setActiveNavLink();
 
   if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
   if (navToggle) navToggle.addEventListener('click', handleMenuToggle);
 
-  document.addEventListener('click', handleDocumentClick);
+  document.addEventListener('click', handleOutsideClick);
   document.addEventListener('keydown', handleEscape);
-  window.addEventListener('scroll', setActiveNav);
-  window.addEventListener('resize', setActiveNav);
+
+  window.addEventListener('scroll', setActiveNavLink);
+  window.addEventListener('resize', setActiveNavLink);
 }
 
 init();
