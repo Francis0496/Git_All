@@ -33,7 +33,7 @@ let countersStarted = false;
 function applyTheme(theme) {
   const safeTheme = theme === 'light' ? 'light' : 'dark';
   html.setAttribute('data-theme', safeTheme);
-  if (themeIcon) themeIcon.textContent = safeTheme === 'light' ? '☀️' : '🌙';
+  if (themeIcon) themeIcon.textContent = safeTheme === 'light' ? 'Sun' : 'Moon';
   if (themeLabel) themeLabel.textContent = safeTheme === 'light' ? 'Light' : 'Dark';
 }
 
@@ -118,7 +118,8 @@ function animateCounters() {
     const tick = () => {
       current += increment;
       if (current >= target) current = target;
-      counter.textContent = `${current.toLocaleString()}+`;
+      const suffix = counter.dataset.suffix || '+';
+      counter.textContent = current.toLocaleString() + suffix;
       if (current < target) requestAnimationFrame(tick);
     };
     tick();
@@ -389,3 +390,102 @@ function init() {
 }
 
 init();
+
+
+
+
+
+function initPlaceholderLinks() {
+  const placeholders = Array.from(document.querySelectorAll('.placeholder-link'));
+  placeholders.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+  });
+}
+function initGallery() {
+  const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+  const lightbox = document.getElementById('galleryLightbox');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxCategory = document.getElementById('lightboxCategory');
+  const lightboxArt = document.querySelector('.lightbox-art');
+
+  if (!galleryItems.length) return;
+
+  galleryItems.forEach((item) => {
+    const imageSrc = item.dataset.image;
+    if (!imageSrc) return;
+
+    const image = new Image();
+    image.onload = () => {
+      item.classList.add('has-image');
+      item.style.setProperty('--gallery-image', `url("${imageSrc}")`);
+    };
+    image.src = imageSrc;
+  });
+
+  const setFilter = (filter) => {
+    filterButtons.forEach((button) => {
+      const isActive = button.dataset.filter === filter;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-pressed', String(isActive));
+    });
+
+    galleryItems.forEach((item) => {
+      const shouldShow = filter === 'all' || item.dataset.category === filter;
+      item.classList.toggle('is-hidden', !shouldShow);
+    });
+  };
+
+  const openLightbox = (item) => {
+    if (!lightbox) return;
+    const title = item.dataset.title || item.textContent.trim();
+    const caption = item.dataset.caption || '';
+    const category = item.dataset.category || 'Gallery';
+
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    if (lightboxCaption) lightboxCaption.textContent = caption;
+    if (lightboxCategory) lightboxCategory.textContent = category.replace('-', ' ');
+    if (lightboxArt) {
+      const imageSrc = item.classList.contains('has-image') ? item.dataset.image : '';
+      lightboxArt.classList.toggle('has-image', Boolean(imageSrc));
+      lightboxArt.style.backgroundImage = imageSrc ? 'linear-gradient(150deg, rgba(3, 7, 18, 0.08), rgba(3, 7, 18, 0.46)), url("' + imageSrc + '")' : '';
+    }
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    body.classList.add('menu-open');
+    lightboxClose?.focus();
+  };
+
+  const closeLightbox = () => {
+    if (!lightbox) return;
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    if (!isMenuOpen()) body.classList.remove('menu-open');
+  };
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => setFilter(button.dataset.filter || 'all'));
+  });
+
+  galleryItems.forEach((item) => {
+    item.addEventListener('click', () => openLightbox(item));
+  });
+
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightbox) {
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && lightbox?.classList.contains('open')) closeLightbox();
+  });
+}
+
+initPlaceholderLinks();
+initGallery();
