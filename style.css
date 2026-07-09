@@ -151,7 +151,7 @@ body {
 }
 
 a {
-  color: var(--accent-cyan);
+  color: var(--accent-ink);
   text-decoration: none;
 }
 
@@ -319,7 +319,7 @@ body.menu-open .nav-overlay {
 
 .section-kicker {
   margin: 0 0 0.45rem;
-  color: var(--accent-cyan);
+  color: var(--accent-ink);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.76rem;
@@ -369,7 +369,7 @@ h3 { font-size: clamp(1.01rem, 2vw, 1.18rem); }
 
 .eyebrow {
   margin: 0 0 0.72rem;
-  color: var(--accent-cyan);
+  color: var(--accent-ink);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.76rem;
@@ -548,7 +548,7 @@ h3 { font-size: clamp(1.01rem, 2vw, 1.18rem); }
 }
 
 .impact-card h3 {
-  color: var(--accent-cyan);
+  color: var(--accent-ink);
   font-size: clamp(1.45rem, 3vw, 2rem);
 }
 
@@ -581,7 +581,7 @@ h3 { font-size: clamp(1.01rem, 2vw, 1.18rem); }
 
 .meta {
   margin: 0.35rem 0 0.5rem;
-  color: var(--accent-cyan);
+  color: var(--accent-ink);
   font-size: 0.84rem;
   font-weight: 700;
 }
@@ -1027,7 +1027,7 @@ h3 { font-size: clamp(1.01rem, 2vw, 1.18rem); }
 .card-label {
   display: inline-flex;
   margin-bottom: 0.55rem;
-  color: var(--accent-cyan);
+  color: var(--accent-ink);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -1432,6 +1432,8 @@ textarea:focus-visible {
   --accent-teal: #16d4c3;
   --accent-violet: #9b7cff;
   --accent-gold: #f2c96d;
+  /* Accent used for TEXT; bright cyan reads fine on dark. Light mode darkens it for WCAG AA. */
+  --accent-ink: var(--accent-cyan);
   --radius-xl: 12px;
   --radius-lg: 8px;
   --radius-md: 8px;
@@ -1450,6 +1452,8 @@ textarea:focus-visible {
   --line: rgba(15, 23, 42, 0.13);
   --surface: rgba(255, 255, 255, 0.76);
   --surface-strong: rgba(255, 255, 255, 0.94);
+  /* Darker cyan (cyan-700) for accent text: ~5.1:1 on light bg (WCAG AA). */
+  --accent-ink: #0e7490;
 }
 
 html {
@@ -1593,7 +1597,7 @@ p {
 .section-kicker,
 .eyebrow,
 .card-label {
-  color: var(--accent-cyan);
+  color: var(--accent-ink);
   letter-spacing: 0.12em;
   font-size: 0.72rem;
 }
@@ -1927,7 +1931,7 @@ p {
 }
 
 .tech-stack {
-  color: var(--accent-cyan);
+  color: var(--accent-ink);
 }
 
 .elite-awards-row {
