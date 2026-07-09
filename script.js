@@ -108,9 +108,18 @@ function animateCounters() {
   if (countersStarted) return;
   countersStarted = true;
 
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
   counters.forEach((counter) => {
     const target = Number(counter.dataset.target || 0);
     if (!target) return;
+    const suffix = counter.dataset.suffix || '+';
+
+    if (reduceMotion) {
+      counter.textContent = target.toLocaleString() + suffix;
+      return;
+    }
+
     let current = 0;
     const duration = 1500;
     const increment = Math.max(1, Math.ceil(target / (duration / 16)));
@@ -118,7 +127,6 @@ function animateCounters() {
     const tick = () => {
       current += increment;
       if (current >= target) current = target;
-      const suffix = counter.dataset.suffix || '+';
       counter.textContent = current.toLocaleString() + suffix;
       if (current < target) requestAnimationFrame(tick);
     };
@@ -234,7 +242,10 @@ function initTestimonials() {
   if (nextTestimonial) nextTestimonial.addEventListener('click', nextSlide);
   if (prevTestimonial) prevTestimonial.addEventListener('click', prevSlide);
 
-  testimonialTimer = setInterval(nextSlide, 5000);
+  // Respect reduced-motion: don't auto-advance moving content.
+  if (!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+    testimonialTimer = setInterval(nextSlide, 5000);
+  }
 }
 
 function handleOutsideClick(event) {
@@ -246,7 +257,10 @@ function handleOutsideClick(event) {
 }
 
 function handleEscape(event) {
-  if (event.key === 'Escape' && isMenuOpen()) closeMenu();
+  if (event.key === 'Escape' && isMenuOpen()) {
+    closeMenu();
+    navToggle?.focus();
+  }
 }
 
 function bindNavLinkClose() {
@@ -415,6 +429,8 @@ function initGallery() {
 
   if (!galleryItems.length) return;
 
+  let lightboxTrigger = null;
+
   galleryItems.forEach((item) => {
     const imageSrc = item.dataset.image;
     if (!imageSrc) return;
@@ -442,6 +458,7 @@ function initGallery() {
 
   const openLightbox = (item) => {
     if (!lightbox) return;
+    lightboxTrigger = item;
     const title = item.dataset.title || item.textContent.trim();
     const caption = item.dataset.caption || '';
     const category = item.dataset.category || 'Gallery';
@@ -465,6 +482,9 @@ function initGallery() {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
     if (!isMenuOpen()) body.classList.remove('menu-open');
+    // Return focus to the gallery item that opened the dialog.
+    lightboxTrigger?.focus();
+    lightboxTrigger = null;
   };
 
   filterButtons.forEach((button) => {
@@ -483,7 +503,14 @@ function initGallery() {
   }
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && lightbox?.classList.contains('open')) closeLightbox();
+    if (!lightbox?.classList.contains('open')) return;
+    if (event.key === 'Escape') {
+      closeLightbox();
+    } else if (event.key === 'Tab') {
+      // The close button is the only focusable control in the dialog; trap focus on it.
+      event.preventDefault();
+      lightboxClose?.focus();
+    }
   });
 }
 
