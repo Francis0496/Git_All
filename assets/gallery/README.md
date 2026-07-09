@@ -11,6 +11,7 @@ The website gallery now includes these evidence images:
 - graduation-awards.jpeg
 - hackathon-competition-poster.jpeg
 - information-sessions2.jpeg
+- ipam-monlanding-hackathon.jpeg
 - knesst-activities.jpeg
 - knesst-demo-landing-portrait.jpeg
 - sierra-edutech-training.jpeg
