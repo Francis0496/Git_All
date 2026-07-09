@@ -1,14 +1,23 @@
 # Gallery Asset Guide
 
-Recovered gallery evidence currently includes:
+The website gallery now includes these evidence images:
 
+- academic-program-graduates-01.jpeg
+- academic-program-graduates-02.jpeg
+- ai-emerging-tech-session-01.jpeg
+- community-impact-group.jpeg
+- demo-day-audience.jpeg
+- graduation-award-interview.jpeg
 - graduation-awards.jpeg
+- hackathon-competition-poster.jpeg
+- information-sessions2.jpeg
 - knesst-activities.jpeg
+- knesst-demo-landing-portrait.jpeg
 - sierra-edutech-training.jpeg
 - spotlight-newsletter.jpeg
-- information-sessions2.jpeg
-
-The Writing Centre tile intentionally falls back to the designed visual treatment until a real image is added.
+- technical-training-lab-01.jpeg
+- workshop-facilitation-01.jpeg
+- workshop-facilitation-02.jpeg
 
 Recommended image treatment:
 
