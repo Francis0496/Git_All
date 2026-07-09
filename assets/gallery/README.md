@@ -16,8 +16,10 @@ The website gallery now includes these evidence images:
 - sierra-edutech-training.jpeg
 - spotlight-newsletter.jpeg
 - technical-training-lab-01.jpeg
+- tutor.jpeg
 - workshop-facilitation-01.jpeg
 - workshop-facilitation-02.jpeg
+- writing-centre.jpeg
 
 Recommended image treatment:
 
